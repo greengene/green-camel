@@ -83,9 +83,6 @@ public abstract class Route extends RouteBuilder
 		String label = new StringBuilder("direct:").append(routeBuilderNameSpace).append(methodName).append(instance > 0 ? "." + instance : "").toString();
 		
 		System.out.print("URI: " + label);
-//		System.out.println("\nBased on: depth: " + depth/*(EnhancedRouteBuilder.currentlyConfiguredRoute == null ? depth : "Taken from static: " + EnhancedRouteBuilder.currentlyConfiguredRoute.getMethodName())*/);
-//		System.out.println("PRINTING STACK TRACE:");
-//		for (int i = 0; i < 10; i++) System.out.println(i + ": " + TraceHelper.getMethodName(i));
 		
 		return label;
 	}
