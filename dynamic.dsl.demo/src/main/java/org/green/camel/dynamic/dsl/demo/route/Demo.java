@@ -1,0 +1,20 @@
+package org.green.camel.dynamic.dsl.demo.route;
+
+import org.apache.camel.CamelContext;
+import org.apache.camel.ProducerTemplate;
+import org.apache.camel.impl.DefaultCamelContext;
+
+public class Demo
+{
+	public static void main(String[] args) throws Exception
+	{
+		CamelContext context = new DefaultCamelContext();
+		context.addRoutes(new HelloWorldRouteBuilder());
+		ProducerTemplate template = context.createProducerTemplate();
+		context.start();
+		template.sendBody(new HelloWorldRouteBuilder().sayHello_1(), null);
+		Thread.sleep(2000);
+		context.stop();
+	}
+
+}

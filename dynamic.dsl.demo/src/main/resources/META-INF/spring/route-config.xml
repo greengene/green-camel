@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:camel="http://camel.apache.org/schema/spring"
+       xmlns:cxf="http://camel.apache.org/schema/cxf"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd
+       http://camel.apache.org/schema/cxf http://camel.apache.org/schema/cxf/camel-cxf.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+  
+	<!-- <bean id="myRoutes" class="org.apache.camel.example.cxf.CamelRoute"/>
+	
+	<camelContext xmlns="http://camel.apache.org/schema/spring">
+		<routeBuilder ref="myRoutes"/>
+	</camelContext> -->
+	
+	<context:component-scan base-package="org.green.camel.dynamic.dsl"/>
+  
+	<camelContext xmlns="http://camel.apache.org/schema/spring">
+	
+		<!-- http://camel.apache.org/spring.html -->
+	
+		<packageScan>
+			<package>org.green.camel</package>
+			<excludes>**.*Excluded*</excludes>
+			<includes>org.green.camel.dynamic.dsl.route.**</includes>
+			<includes>org.green.camel.dynamic.dsl.*.route.**</includes>
+		</packageScan>
+		
+		<contextScan/>
+		
+	</camelContext>
+
+</beans>
