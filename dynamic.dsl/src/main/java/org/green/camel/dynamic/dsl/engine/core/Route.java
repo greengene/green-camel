@@ -27,11 +27,6 @@ public abstract class Route extends RouteBuilder
 		super(EnhancedRouteBuilder.camelContext);
 	}
 	
-	public RouteDefinitionExtender fromNew()
-	{
-		return fromHere();
-	}
-	
 	protected final RouteDefinitionExtender fromHere()
 	{
 		int instance;
