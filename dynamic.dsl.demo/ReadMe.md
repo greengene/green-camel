@@ -1,5 +1,4 @@
-Camel dynamic Java DSL extension demo
-===================================
+### Camel dynamic Java DSL extension demo
 
 This project demonstrates the Camel Dynamic Java DSL extension.
 

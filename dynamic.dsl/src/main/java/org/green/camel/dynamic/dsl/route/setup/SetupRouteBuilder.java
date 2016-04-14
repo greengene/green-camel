@@ -20,8 +20,8 @@ public class SetupRouteBuilder extends DefaultRouteBuilder
 				        	.setHeader("id", simple("${body[1]}"))
 				        .end()
 				    */
-					//.to(emptySetUp())
-					.print("inside setup!")
+					.to(emptySetUp())
+					//.print("inside setup!")
 					;
 				}					
 			}

@@ -1,6 +1,5 @@
 package org.green.camel.dynamic.dsl.engine.core;
 
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.util.ArrayList;
@@ -12,24 +11,22 @@ import org.apache.commons.lang3.StringUtils;
 import org.green.camel.dynamic.dsl.engine.utility.ReflectionsUtil;
 import org.green.camel.dynamic.dsl.engine.utility.TraceHelper;
 
-abstract public class EnhancedRouteBuilder extends RouteBuilder
+public abstract class EnhancedRouteBuilder extends RouteBuilder
 {
-	public static CamelContext camelContext;
+	protected static CamelContext camelContext;
 	
 	private static boolean returnLabel = true;
 	private static String routeMethod = "";
-	static int time;
+	private static int time;
 	
 	static boolean startConfiguringParameterizedRoute;
-	
-	static Route root;
-	
+
 	static final int FROM_HERE_STACK_DEPTH = 5;
 	static final int CHILD_ROUTE_STACK_DEPTH = 2;
 	
 	static Route currentlyConfiguredRoute;
 	
-	abstract protected void beforeLoadingRoutes();
+	protected abstract void beforeLoadingRoutes();
 	
 	@Override
 	public void configure() throws Exception
@@ -41,7 +38,7 @@ abstract public class EnhancedRouteBuilder extends RouteBuilder
 		loadRoutes();
 	}
 	
-	private void loadRoutes() throws IllegalAccessException, IllegalArgumentException, InvocationTargetException
+	private void loadRoutes() throws Exception
 	{		
 		camelContext = (camelContext == null? getContext() : camelContext);
 		
@@ -104,7 +101,7 @@ abstract public class EnhancedRouteBuilder extends RouteBuilder
 		}
 	}
 	
-	protected String configureRoute(Route route)
+	final protected String configureRoute(Route route)
 	{		
 		try
 		{

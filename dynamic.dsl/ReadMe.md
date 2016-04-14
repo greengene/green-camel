@@ -1,5 +1,4 @@
-Camel dynamic Java DSL extension
-===================================
+### Camel dynamic Java DSL extension
 
 This extension lets you write Camel Java DSL routes in a more method-oriented manner.
 

@@ -2,7 +2,6 @@ package org.green.camel.dynamic.dsl.engine.core;
 
 import java.util.List;
 
-import org.apache.camel.CamelContext;
 import org.apache.camel.Exchange;
 import org.apache.camel.Processor;
 import org.apache.camel.builder.RouteBuilder;
@@ -13,9 +12,9 @@ import org.green.camel.dynamic.dsl.language.route_definition.RouteDefinitionExte
 
 public abstract class Route extends RouteBuilder 
 {
-	protected String routeBuilderNameSpace;
+	String routeBuilderNameSpace;
 	
-	public List<Route> parameterizedChildRoutes;
+	List<Route> parameterizedChildRoutes;
 
 	public static String fromHere;
 	
@@ -45,7 +44,7 @@ public abstract class Route extends RouteBuilder
 		return new RouteDefinitionExtender(fromLabel(fromHere));
 	}
 	
-	protected final RouteDefinition fromLabel(String routeLabel)
+	final RouteDefinition fromLabel(String routeLabel)
 	{
 		return
 			from(routeLabel)
@@ -60,7 +59,7 @@ public abstract class Route extends RouteBuilder
 			.routeId(routeLabel);				
 	}
 	
-	protected String getDefaultLabel(int depth, int instance)
+	final String getDefaultLabel(int depth, int instance)
 	{		
 		String methodName;
 		
@@ -82,22 +81,22 @@ public abstract class Route extends RouteBuilder
 		return label;
 	}
 
-	public String getMethodName()
+	final String getMethodName()
 	{
 		return methodName;
 	}
 
-	public void setMethodName(String methodName)
+	final void setMethodName(String methodName)
 	{
 		this.methodName = methodName;
 	}
 
-	public int getInstance()
+	final int getInstance()
 	{
 		return instance;
 	}
 
-	public void setInstance(int instance)
+	final void setInstance(int instance)
 	{
 		this.instance = instance;
 	}
