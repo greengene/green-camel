@@ -9,20 +9,20 @@ import com.google.common.collect.Range;
 
 public class HelloWorldRouteBuilder extends DefaultRouteBuilder
 {
-	public static String someResult;
-	
 	public String sayHello_1()
 	{
 		return configureRoute(
 				new Route()
 				{
+					//StringBuilder someResult = new StringBuilder();
+					
 					@Override
 					public void configure()
 					{
 						fromHere()
 						.print("Starting hello 1")
 						.to(sayHello_2())
-						.to(someResult = sayHello_3())
+						.to(sayHello_3())
 						.to(sayHello_4("Hello 4"))
 						.to(sayHello_5())
 						.to(sayHello_6())
@@ -62,7 +62,6 @@ public class HelloWorldRouteBuilder extends DefaultRouteBuilder
 					{
 						fromHere()
 						.print("Hello 3")
-						
 						;
 					}					
 				}				

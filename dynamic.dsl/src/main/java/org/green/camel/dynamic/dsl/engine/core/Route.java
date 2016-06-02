@@ -16,6 +16,7 @@ public abstract class Route extends RouteBuilder
 	
 	List<Route> parameterizedChildRoutes;
 
+	//TODO move fromHere to a global context. Language extension should not look inside here.
 	public static String fromHere;
 	
 	private String methodName;

@@ -1,6 +1,7 @@
 package org.green.camel.dynamic.dsl.language.route_definition;
 
 import org.apache.camel.Expression;
+import org.apache.camel.Processor;
 import org.apache.camel.model.RouteDefinition;
 import org.green.camel.dynamic.dsl.language.choice_definition.ChoiceDefinitionExtender;
 import org.green.camel.dynamic.dsl.language.expression_clause.ExpressionClauseExtender;
@@ -50,5 +51,17 @@ public class RouteDefinitionExtender extends UnofficialRouteDefinitionExtender
 	public ExpressionClauseExtender loop()
 	{
 		return new ExpressionClauseExtender(getDefinition().loop());
+	}
+	
+	public RouteDefinitionExtender setBody(Expression expression)
+	{
+		setDefinition(getDefinition().setBody(expression));
+		return this;
+	}
+	
+	public RouteDefinitionExtender process(Processor processor)
+	{
+		setDefinition(getDefinition().process(processor));
+		return this;
 	}
 }

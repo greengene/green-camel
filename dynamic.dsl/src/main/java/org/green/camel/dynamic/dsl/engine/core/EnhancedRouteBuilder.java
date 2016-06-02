@@ -16,6 +16,8 @@ public abstract class EnhancedRouteBuilder extends RouteBuilder
 	protected static CamelContext camelContext;
 	
 	private static boolean returnLabel = true;
+	//TODO move returnedLabel to a global context. Language extension should not look inside here.
+	public static String returnedLabel;
 	private static String routeMethod = "";
 	private static int time;
 	
@@ -185,7 +187,7 @@ public abstract class EnhancedRouteBuilder extends RouteBuilder
 			
 			loadParameterizeRoutes(route.parameterizedChildRoutes);
 			
-			return label;		
+			return returnedLabel = label;		
 		}
 		catch (Exception e)
 		{
