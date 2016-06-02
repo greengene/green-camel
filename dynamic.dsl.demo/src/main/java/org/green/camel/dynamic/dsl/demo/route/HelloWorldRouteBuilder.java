@@ -14,8 +14,6 @@ public class HelloWorldRouteBuilder extends DefaultRouteBuilder
 		return configureRoute(
 				new Route()
 				{
-					//StringBuilder someResult = new StringBuilder();
-					
 					@Override
 					public void configure()
 					{
