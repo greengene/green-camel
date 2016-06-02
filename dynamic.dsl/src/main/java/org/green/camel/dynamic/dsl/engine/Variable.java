@@ -2,26 +2,21 @@ package org.green.camel.dynamic.dsl.engine;
 
 public class Variable
 {
-	private StringBuilder reference;
-
-	public Variable()
-	{
-		this.reference = new StringBuilder();
-	}
+	private String reference;
 	
 	@Override
 	public String toString()
 	{
-		return reference.toString();
+		return reference;
 	}
 
 	public String getReference()
 	{
-		return reference.toString();
+		return reference;
 	}
 
 	public void setReference(String reference)
 	{
-		this.reference = new StringBuilder(reference);
-	}	
+		this.reference = reference;
+	}
 }
