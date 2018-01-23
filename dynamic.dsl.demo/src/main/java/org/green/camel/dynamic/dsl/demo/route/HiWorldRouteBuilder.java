@@ -10,8 +10,6 @@ import org.springframework.stereotype.Component;
 @Component
 public class HiWorldRouteBuilder extends DefaultRouteBuilder
 {
-	public static String someResult;
-	
 	public String sayHi_1()
 	{
 		return configureRoute(

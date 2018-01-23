@@ -24,4 +24,13 @@ public interface GreetingService {
 	@WebResult(name = "saySomethingResponse")
 	public List<String> saySomething(
 		@PathParam("text") @WebParam(name = "text") String text);
+
+	@GET
+	@Path("/say/across-routes/{text}")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	@WebMethod
+	@WebResult(name = "sayAcrossRoutesResponse")
+	public List<String> sayAcrossRoutes(
+			@PathParam("text") @WebParam(name = "text") String text);
 }
